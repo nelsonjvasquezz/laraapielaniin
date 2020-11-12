@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\HomeControllerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +21,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+/*
+ * Rutas para crud de productos
+ */
+Route::get('/productos', [ProductoController::class, 'index'])
+    ->name('productos.index');
+Route::get('/productos/{id}', [ProductoController::class, 'show'])
+    ->name('productos.show');
+Route::get('/productos/create', [ProductoController::class, 'create'])
+    ->name('productos.create');
+Route::post('/productos', [ProductoController::class, 'store'])
+    ->name('productos.store');
