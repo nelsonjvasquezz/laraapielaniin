@@ -10,6 +10,7 @@
             <th scope="col">Precio</th>
             <th scope="col">Descripcion</th>
             <th scope="col">Imagen</th>
+            <th scope="col">Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -21,7 +22,17 @@
                 <td>{{ $item->precio }}</td>
                 <td>{{ $item->descripcion }}</td>
                 <td><img src="{{ asset('storage') . '/' . $item->image_url }}"
-                         width="100px" height="100px"></td>
+                         width="100px" height="100px">
+                </td>
+                <td><a href="{{ route('productos.edit', $item) }}"
+                       class="btn btn-warnign">Editar</a>
+
+                    <form action="{{ route('productos.destroy', $item) }}" class="d-inline" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>

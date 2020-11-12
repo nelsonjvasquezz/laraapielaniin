@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
-use App\Http\Controllers\HomeControllerController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +32,10 @@ Route::get('/productos/{id}', [ProductoController::class, 'show'])
     ->name('productos.show');
 Route::get('/productos/create', [ProductoController::class, 'create'])
     ->name('productos.create');
-Route::post('/productos', [ProductoController::class, 'store'])
-    ->name('productos.store');
+Route::get('/productos/{id}/edit', [ProductoController::class, 'edit'])
+    ->name('productos.edit');
+Route::put('/productos/{id}', [ProductoController::class, 'update'])
+    ->name('productos.update');
+Route::delete('/productos/{id}', [ProductoController::class, 'destroy'])
+    ->name('productos.destroy');
+
