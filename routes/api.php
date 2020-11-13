@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ProductoAPIController;
+use App\Http\Controllers\API\UserApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,13 @@ Route::post('productos', [ProductoAPIController::class, 'store']);
 Route::put('productos/{id}', [ProductoAPIController::class, 'update']);
 
 Route::delete('productos/{id}', [ProductoAPIController::class, 'destroy']);
+
+Route::get('users', [UserApiController::class, 'index']);
+
+Route::get('users/{id}', [UserApiController::class, 'show']);
+
+Route::post('users', [UserApiController::class, 'store']);
+
+Route::put('users/{id}', [UserApiController::class, 'update']);
+
+Route::delete('users/{id}', [UserApiController::class, 'destroy']);
